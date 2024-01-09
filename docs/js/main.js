@@ -1,4 +1,5 @@
-
+const o=document.querySelector("#all-character"),l=document.querySelector("#favorite-character"),s=document.querySelector(".js-search-button"),f=document.querySelector(".js-search-input"),i="//api.disneyapi.dev/character?pageSize=50",h=document.querySelector(".js_clear_fav");let n=[];function d(e,t){let c=document.createElement("li");c.className="char_item",c.innerHTML+=`
+        <img src="${e.imageUrl||"https://via.placeholder.com/210x295/ffffff/555555/?text=Disney"}" />
+        <h3>${e.name}</h3>
+    `,c.addEventListener("click",a=>{u(e)}),t.appendChild(c)}function r(e,t){t.innerHTML="",e.forEach(c=>{d(c,t)})}function u(e){let t=!1,c=-1;for(let a=0;a<n.length;a++)n[a]._id==e._id&&(t=!0,c=a);t?n.splice(c,1):n.push(e),r(n,l),localStorage.setItem("fav",JSON.stringify(n))}s.addEventListener("click",e=>{e.preventDefault(),fetch(`${i}&name=${f.value}`).then(t=>t.json()).then(t=>{r(t.data,o)})});h.addEventListener("click",e=>{localStorage.removeItem("fav"),n=[],r(n,l)});fetch(i).then(e=>e.json()).then(e=>{r(e.data,o)});n=JSON.parse(localStorage.getItem("fav")||"[]");r(n,l);
 //# sourceMappingURL=main.js.map
-
-
