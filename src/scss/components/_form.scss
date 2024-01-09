@@ -1,0 +1,15 @@
+input{
+    font-size: 1rem;
+    padding: .2rem;
+    display: block;
+    border: 2px solid $color-accent;
+    color: $color-primary;
+}
+button {
+    font-size: 1rem;
+    padding: .2rem;
+    background-color: $color-accent;
+    color: white;
+    border: 2px solid $color-accent;
+    display: block;
+}
